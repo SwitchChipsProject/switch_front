@@ -12,7 +12,7 @@ const Content = styled.div`
   min-width: 450px;
   min-height: 100vh;
   background-color: white;
-  padding: 0 30px;
+  padding: 0px 30px 0 30px;
   display: flex;
   justify-content: center;
 `;
