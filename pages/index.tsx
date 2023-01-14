@@ -33,6 +33,10 @@ export default function Home() {
     router.push('/login');
   }, [router]);
 
+  const goToRegister = useCallback(() => {
+    router.push('/register');
+  }, [router]);
+
   return (
     <Container>
       <Title>
@@ -48,7 +52,11 @@ export default function Home() {
         >
           로그인
         </Button>
-        <Button backgroundColor={'black'} textColor="white">
+        <Button
+          backgroundColor={'black'}
+          textColor="white"
+          onClick={goToRegister}
+        >
           회원가입
         </Button>
       </ButtonsWrapper>
