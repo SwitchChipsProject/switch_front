@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.button<{ color: string }>`
   width: 100%;
-  height: 60px;
+  height: 50px;
   background-color: ${(props) => props.color};
   cursor: pointer;
   border-radius: 10px;
@@ -13,7 +13,7 @@ const Container = styled.button<{ color: string }>`
 const Content = styled.span<{ color: string }>`
   color: ${(props) => props.color};
   font-weight: 600;
-  font-size: 20px;
+  font-size: 18px;
 `;
 
 export default function Button({

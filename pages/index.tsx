@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Button from '../components/util/Button';
-
+import { useRouter } from 'next/router';
+import { useCallback } from 'react';
 const Container = styled.div`
   height: 100%;
   display: flex;
@@ -26,6 +27,16 @@ const ButtonsWrapper = styled.div`
   flex-direction: column;
 `;
 export default function Home() {
+  const router = useRouter();
+
+  const goToLogin = useCallback(() => {
+    router.push('/login');
+  }, [router]);
+
+  const goToRegister = useCallback(() => {
+    router.push('/register');
+  }, [router]);
+
   return (
     <Container>
       <Title>
@@ -34,10 +45,14 @@ export default function Home() {
       </Title>
       <Image src="/homeImage.png" alt="home image"></Image>
       <ButtonsWrapper>
-        <Button backgroundColor={'#FF5D51'} textColor="white">
+        <Button backgroundColor="#FF5D51" textColor="white" onClick={goToLogin}>
           로그인
         </Button>
-        <Button backgroundColor={'black'} textColor="white">
+        <Button
+          backgroundColor="black"
+          textColor="white"
+          onClick={goToRegister}
+        >
           회원가입
         </Button>
       </ButtonsWrapper>
