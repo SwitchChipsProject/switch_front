@@ -50,7 +50,7 @@ export default function Login() {
             <InputLabel>비밀번호</InputLabel>
             <Input placeholder="비밀번호" type="password"></Input>
           </InputWrapper>
-          <Button backgroundColor={'#FF5D51'} textColor="white">
+          <Button backgroundColor="#FF5D51" textColor="white">
             로그인
           </Button>
         </>

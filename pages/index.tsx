@@ -45,15 +45,11 @@ export default function Home() {
       </Title>
       <Image src="/homeImage.png" alt="home image"></Image>
       <ButtonsWrapper>
-        <Button
-          backgroundColor={'#FF5D51'}
-          textColor="white"
-          onClick={goToLogin}
-        >
+        <Button backgroundColor="#FF5D51" textColor="white" onClick={goToLogin}>
           로그인
         </Button>
         <Button
-          backgroundColor={'black'}
+          backgroundColor="black"
           textColor="white"
           onClick={goToRegister}
         >
