@@ -29,27 +29,31 @@ const HeaderSubText = styled.span`
   font-weight: 400;
 `;
 
-const Body = styled.div`
+const Body = styled.div<{ gap: number }>`
   padding: 25px 20px;
   display: flex;
   flex-direction: column;
-  gap: 30px 0;
+  gap: ${(props) => `${props.gap}px 0`};
 `;
 
-export default function InputContainer({
+export default function Card({
   children,
-  type,
+  subTitle,
+  title,
+  gap,
 }: {
   children: React.ReactNode;
-  type: 'Login' | 'Register';
+  subTitle: string;
+  title: string;
+  gap: number;
 }) {
   return (
     <Container>
       <Header>
-        <HeaderSubText>{type}</HeaderSubText>
-        <HeaderText>{type === 'Login' ? '로그인' : '회원가입'}</HeaderText>
+        <HeaderSubText>{subTitle}</HeaderSubText>
+        <HeaderText>{title}</HeaderText>
       </Header>
-      <Body>{children}</Body>
+      <Body gap={gap}>{children}</Body>
     </Container>
   );
 }

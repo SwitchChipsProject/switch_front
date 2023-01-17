@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import InputContainer from '../components/util/InputContainer';
+import Card from '../components/util/Card';
 import Button from '../components/util/Button';
 const Container = styled.div`
   height: 100%;
@@ -49,7 +49,7 @@ const LocationButton = styled.button`
 export default function Register() {
   return (
     <Container>
-      <InputContainer type="Register">
+      <Card subTitle="Register" title="회원가입" gap={30}>
         <>
           <InputWrapper>
             <InputLabel>
@@ -80,7 +80,7 @@ export default function Register() {
             회원가입
           </Button>
         </>
-      </InputContainer>
+      </Card>
     </Container>
   );
 }
