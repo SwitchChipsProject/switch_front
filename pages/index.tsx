@@ -69,8 +69,8 @@ export default function Home() {
         title="⭐️ 등록한 교환 요청"
       >
         <>
-          <ExchangeRequest></ExchangeRequest>
-          <ExchangeRequest></ExchangeRequest>
+          <ExchangeRequest mode="button"></ExchangeRequest>
+          <ExchangeRequest mode="button"></ExchangeRequest>
         </>
       </Card>
       <Button backgroundColor="#FF5D51" textColor="white">

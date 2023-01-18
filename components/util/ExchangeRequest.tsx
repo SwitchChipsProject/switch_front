@@ -2,18 +2,22 @@ import { url } from 'inspector';
 import styled from 'styled-components';
 import { CgArrowsExchange } from 'react-icons/cg';
 
-const Container = styled.button`
+const Container = styled.button<{ mode: 'button' | 'background' }>`
   height: 90px;
   border-radius: 10px;
-  box-shadow: 0px 8px 15px #f3f3f3;
+  box-shadow: ${(props) =>
+    props.mode === 'button' ? '0px 8px 15px #eeeeee' : 'none'};
   display: flex;
-  border: 1px solid #f3f3f3;
+  border: ${(props) =>
+    props.mode === 'button' ? '1px solid #eeeeee' : 'none'};
+  width: 100%;
   position: relative;
   background: transparent;
-  cursor: pointer;
+  cursor: ${(props) => (props.mode === 'button' ? 'pointer' : 'auto')};
   transition: all 250ms ease;
   :hover {
-    transform: translateY(-3px);
+    transform: ${(props) =>
+      props.mode === 'button' ? 'translateY(-3px)' : 'none'};
   }
 `;
 
@@ -98,9 +102,13 @@ const ChangeIconWrapper = styled.div`
   justify-content: center;
 `;
 
-export default function ExchangeRequest() {
+export default function ExchangeRequest({
+  mode,
+}: {
+  mode: 'button' | 'background';
+}) {
   return (
-    <Container>
+    <Container mode={mode}>
       <Section>
         <SectionInstance
           isItLeft={true}

@@ -2,16 +2,15 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   border-radius: 10px;
-  box-shadow: 0px 8px 15px #f3f3f3;
+  box-shadow: 0px 8px 15px #eeeeee;
   width: 100%;
-  border: 1px solid #f3f3f3;
-  margin: 30px 0 20px;
+  border: 1px solid #eeeeee;
 `;
 
 const Header = styled.div`
   width: 100%;
   padding: 15px 20px;
-  border-bottom: 1px solid #f3f3f3;
+  border-bottom: 1px solid #eeeeee;
   flex-direction: column;
   display: flex;
   gap: 5px 0;
