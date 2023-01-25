@@ -97,8 +97,15 @@ export default function Home() {
           <MatchedRequest></MatchedRequest>
         </>
       </Card>
+      <Card title=" 👯‍♀️️ 마리오 칩을 원하는 유저들" gap={12.5}>
+        <>
+          <MatchedRequest></MatchedRequest>
+          <MatchedRequest></MatchedRequest>
+          <MatchedRequest></MatchedRequest>
+        </>
+      </Card>
       <Button backgroundColor="#FF5D51" textColor="white">
-        슈퍼마리오 칩을 원하는 다른 유저들 확인하기{' '}
+        슈퍼마리오 칩을 원하는 다른 유저들 확인하기
       </Button>
     </Container>
   );

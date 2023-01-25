@@ -12,6 +12,7 @@ const Container = styled.div<{ isLoggedIn: boolean }>`
   justify-content: ${(props) =>
     props.isLoggedIn ? 'flex-start' : 'space-around'};
   width: 100%;
+  gap: 15px 0;
 `;
 const Title = styled.span`
   font-size: 32.5px;
