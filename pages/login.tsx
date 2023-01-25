@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import InputContainer from '../components/util/InputContainer';
+import Card from '../components/util/Card';
 import Button from '../components/util/Button';
 const Container = styled.div`
   height: 100%;
@@ -7,6 +7,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  gap: 15px 0;
 `;
 
 const InputWrapper = styled.div`
@@ -40,7 +41,7 @@ const Strong = styled.strong`
 export default function Login() {
   return (
     <Container>
-      <InputContainer type="Login">
+      <Card subTitle="Login" title="로그인" gap={30}>
         <>
           <InputWrapper>
             <InputLabel>이메일 (아이디)</InputLabel>
@@ -54,7 +55,7 @@ export default function Login() {
             로그인
           </Button>
         </>
-      </InputContainer>
+      </Card>
       <Button textColor="black" backgroundColor="#FAE100">
         카카오 로그인
       </Button>

@@ -1,14 +1,18 @@
 import styled from 'styled-components';
 import Button from '../components/util/Button';
 import { useRouter } from 'next/router';
-import { useCallback } from 'react';
-const Container = styled.div`
+import { useCallback, useState } from 'react';
+import Card from '../components/util/Card';
+import ExchangeRequest from '../components/util/ExchangeRequest';
+const Container = styled.div<{ isLoggedIn: boolean }>`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
+  justify-content: ${(props) =>
+    props.isLoggedIn ? 'flex-start' : 'space-around'};
   width: 100%;
+  gap: 15px 0;
 `;
 const Title = styled.span`
   font-size: 32.5px;
@@ -28,6 +32,7 @@ const ButtonsWrapper = styled.div`
 `;
 export default function Home() {
   const router = useRouter();
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   const goToLogin = useCallback(() => {
     router.push('/login');
@@ -37,8 +42,8 @@ export default function Home() {
     router.push('/register');
   }, [router]);
 
-  return (
-    <Container>
+  return isLoggedIn ? (
+    <Container isLoggedIn={false}>
       <Title>
         닌텐도 칩을 <br />
         바꿔보세요.
@@ -56,6 +61,22 @@ export default function Home() {
           회원가입
         </Button>
       </ButtonsWrapper>
+    </Container>
+  ) : (
+    <Container isLoggedIn={true}>
+      <Card
+        gap={15}
+        subTitle="Exchange your chips "
+        title="⭐️ 등록한 교환 요청"
+      >
+        <>
+          <ExchangeRequest mode="button"></ExchangeRequest>
+          <ExchangeRequest mode="button"></ExchangeRequest>
+        </>
+      </Card>
+      <Button backgroundColor="#FF5D51" textColor="white">
+        요청 등록
+      </Button>
     </Container>
   );
 }

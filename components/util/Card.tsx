@@ -2,16 +2,15 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   border-radius: 10px;
-  box-shadow: 0px 8px 15px #f3f3f3;
+  box-shadow: 0px 8px 15px #eeeeee;
   width: 100%;
-  border: 1px solid #f3f3f3;
-  margin: 30px 0 20px;
+  border: 1px solid #eeeeee;
 `;
 
 const Header = styled.div`
   width: 100%;
   padding: 15px 20px;
-  border-bottom: 1px solid #f3f3f3;
+  border-bottom: 1px solid #eeeeee;
   flex-direction: column;
   display: flex;
   gap: 5px 0;
@@ -29,27 +28,31 @@ const HeaderSubText = styled.span`
   font-weight: 400;
 `;
 
-const Body = styled.div`
+const Body = styled.div<{ gap: number }>`
   padding: 25px 20px;
   display: flex;
   flex-direction: column;
-  gap: 30px 0;
+  gap: ${(props) => `${props.gap}px 0`};
 `;
 
-export default function InputContainer({
+export default function Card({
   children,
-  type,
+  subTitle,
+  title,
+  gap,
 }: {
   children: React.ReactNode;
-  type: 'Login' | 'Register';
+  subTitle: string;
+  title: string;
+  gap: number;
 }) {
   return (
     <Container>
       <Header>
-        <HeaderSubText>{type}</HeaderSubText>
-        <HeaderText>{type === 'Login' ? '로그인' : '회원가입'}</HeaderText>
+        <HeaderSubText>{subTitle}</HeaderSubText>
+        <HeaderText>{title}</HeaderText>
       </Header>
-      <Body>{children}</Body>
+      <Body gap={gap}>{children}</Body>
     </Container>
   );
 }

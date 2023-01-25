@@ -1,0 +1,121 @@
+#container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 15px 0;
+
+  #contents {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 30px;
+
+    .chipCard {
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      border: 1px solid #eeeeee;
+      background-color: transparent;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: column;
+      .text {
+        color: black;
+        font-size: 15px;
+        font-weight: 600;
+      }
+    }
+
+    #iconWrapper {
+      background-color: #ff5d51;
+      box-shadow: 0 0 10px #00000030;
+      width: 40px;
+      height: 40px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+#popup {
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #00000078;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  #container {
+    padding: 25px;
+    max-width: 400px;
+    box-sizing: content-box;
+    // width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    gap: 15px 0;
+
+    #searchBar {
+      width: 100%;
+      padding: 15px;
+      background-color: #eeeeee;
+      border-radius: 10px;
+      display: flex;
+      gap: 0 10px;
+      align-items: center;
+      #input {
+        flex: 1;
+        font-size: 20px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: black;
+      }
+    }
+
+    #division {
+      width: 100%;
+      height: 1px;
+      background-color: #eeeeee;
+    }
+
+    #searchResults {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 10px;
+      max-height: 300px;
+      overflow: scroll;
+      .chipCard {
+        width: 92.5px;
+        height: 92.5px;
+        border: 1px solid #eeeeee;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        background-color: transparent;
+        .img {
+          background: url('https://w.namu.la/s/d9103698a1b72ed7be98b82e5b61851ecd9b23acd25bd55e2f46f6b76cc6f3237aaa11cb0cad0618ebaed87a9b70f114a33311e0c75fec18b54ef21ad43d62bec98be06402a5bfb8482fcd9e3c27e8b3590ea75f266a911fdcbda1e7f4194621c895c0b02706fc0a4c0a768e0f323250');
+          background-size: contain;
+          background-repeat: no-repeat;
+          width: 35px;
+          height: 35px;
+        }
+
+        .text {
+          color: black;
+          font-size: 15px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
