@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Card from '../components/util/Card';
 import Button from '../components/util/Button';
+import { useCallback, useEffect, useRef, useState } from 'react';
 const Container = styled.div`
   height: 100%;
   display: flex;
@@ -29,29 +30,74 @@ const Input = styled.input`
   background-color: white;
   color: black;
   outline: none;
-  /* ::placeholder {
-    color: black;
-  } */
-`;
 
-const Strong = styled.strong`
-  color: red;
+  ::placeholder {
+    color: #b3b3b3;
+  }
 `;
 
 export default function Login() {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [disabled, setDisabled] = useState<boolean>(true);
+
+  const target = useRef<HTMLInputElement>(null);
+
+  const onChangeEmail = useCallback(
+    ({ target: { value } }: { target: { value: string } }) => {
+      setEmail(value);
+    },
+    []
+  );
+
+  const onChangePassword = useCallback(
+    ({ target: { value } }: { target: { value: string } }) => {
+      setPassword(value);
+    },
+    []
+  );
+
+  const onClickButton = useCallback(() => {
+    alert('로그인 되었습니다.');
+  }, []);
+
+  useEffect(() => {
+    setDisabled(email.length === 0 || password.length === 0);
+  }, [email, password]);
   return (
     <Container>
       <Card subTitle="Login" title="로그인" gap={30}>
         <>
           <InputWrapper>
             <InputLabel>이메일 (아이디)</InputLabel>
-            <Input placeholder="아이디"></Input>
+            <Input
+              placeholder="이메일 주소를 입력해주세요."
+              onChange={onChangeEmail}
+              value={email}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  (target.current as HTMLInputElement).focus();
+                }
+              }}
+            ></Input>
           </InputWrapper>
           <InputWrapper>
             <InputLabel>비밀번호</InputLabel>
-            <Input placeholder="비밀번호" type="password"></Input>
+            <Input
+              placeholder="비밀번호를 입력해주세요."
+              type="password"
+              autoComplete="new-password"
+              value={password}
+              onChange={onChangePassword}
+              ref={target}
+            ></Input>
           </InputWrapper>
-          <Button backgroundColor="#FF5D51" textColor="white">
+          <Button
+            backgroundColor={disabled ? '#ff5d514d' : '#FF5D51'}
+            textColor="white"
+            onClick={onClickButton}
+            disabled={disabled}
+          >
             로그인
           </Button>
         </>
