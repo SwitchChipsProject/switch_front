@@ -7,6 +7,7 @@ import { RiFileAddFill } from 'react-icons/ri';
 import { CgArrowsExchange } from 'react-icons/cg';
 import { BiSearch } from 'react-icons/bi';
 import { useRef } from 'react';
+
 export default function Home() {
   const router = useRouter();
   const target = useRef<any>();
