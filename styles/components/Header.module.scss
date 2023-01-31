@@ -1,0 +1,75 @@
+#wrapper {
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  #container {
+    width: 450px;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    border-bottom: 1px solid #eeeeee;
+    background-color: white;
+    transition: all 300ms ease;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    #logoImage {
+      background: url('../../public/logo.png');
+      width: 120px;
+      height: 45px;
+      background-size: contain;
+      cursor: pointer;
+      border: none;
+      background-repeat: no-repeat;
+    }
+
+    #userImage {
+      background: url('https://pbs.twimg.com/media/FldMvLPaUAI2Uz7?format=jpg&name=large');
+      width: 40px;
+      height: 40px;
+      background-size: cover;
+      cursor: pointer;
+      border: none;
+      border-radius: 7.5px;
+      border: 1px solid #eeeeee;
+    }
+
+    #menu {
+      display: flex;
+      align-items: center;
+      gap: 0 10px;
+
+      .button {
+        border: none;
+        background-color: transparent;
+        position: relative;
+        .status {
+          width: 12px;
+          height: 12px;
+          border-radius: 12px;
+          background-color: #ff5d51;
+          position: absolute;
+          right: -3.5px;
+          top: -3px;
+          border: 1.5px solid white;
+        }
+        cursor: pointer;
+      }
+
+      .division {
+        width: 1px;
+        height: 17px;
+        background-color: #eeeeee;
+      }
+    }
+  }
+
+  .display {
+    transform: translateY(0px);
+  }
+  .notDisplay {
+    transform: translateY(-100px);
+  }
+}

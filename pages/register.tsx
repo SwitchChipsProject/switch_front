@@ -281,6 +281,7 @@ export default function Register() {
           </Button>
         </>
       </Card>
+
       {visibility ? (
         <div id={styles.popup} ref={popup} onClick={onClickPopup}>
           <DaumPostcodeEmbed style={{ width: 450 }} onComplete={onComplete} />
