@@ -281,7 +281,105 @@ export default function Register() {
           </Button>
         </>
       </Card>
-
+      <Card subTitle="Register" title="회원가입" gap={30}>
+        <>
+          <InputWrapper>
+            <InputLabel>
+              이메일 (아이디)<Strong>*</Strong>
+            </InputLabel>
+            <Input
+              placeholder="이메일 주소를 입력해주세요."
+              autoComplete="new-password"
+              onChange={onChangeEmail}
+              value={email}
+              status={emailInit ? 'init' : emailValid ? 'pass' : 'not-pass'}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  (inputs.current[0] as HTMLInputElement).focus();
+                }
+              }}
+            ></Input>
+          </InputWrapper>
+          <InputWrapper>
+            <InputLabel>
+              비밀번호 (8자 이상)<Strong>*</Strong>
+            </InputLabel>
+            <Input
+              placeholder="비밀번호를 입력해주세요."
+              type="password"
+              autoComplete="new-password"
+              onChange={onChangePassword}
+              value={password}
+              status={
+                passwordInit ? 'init' : passwordValid ? 'pass' : 'not-pass'
+              }
+              ref={(el) => (inputs.current[0] = el)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  (inputs.current[1] as HTMLInputElement).focus();
+                }
+              }}
+            ></Input>
+            <Input
+              placeholder="다시한번 비밀번호를 입력해주세요."
+              type="password"
+              onChange={onChangePasswordCheck}
+              value={passwordCheck}
+              status={
+                passwordCheckInit
+                  ? 'init'
+                  : passwordCheckValid
+                  ? 'pass'
+                  : 'not-pass'
+              }
+              ref={(el) => (inputs.current[1] = el)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  (inputs.current[2] as HTMLInputElement).focus();
+                }
+              }}
+            ></Input>
+          </InputWrapper>
+          <InputWrapper>
+            <InputLabel>
+              닉네임<Strong>*</Strong>
+            </InputLabel>
+            <Input
+              placeholder="닉네임을 입력해주세요."
+              onChange={onChangeNickname}
+              value={nickname}
+              status={
+                nicknameInit ? 'init' : nicknameValid ? 'pass' : 'not-pass'
+              }
+              ref={(el) => (inputs.current[2] = el)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  setVisibility(true);
+                }
+              }}
+            ></Input>
+          </InputWrapper>
+          <InputWrapper>
+            <InputLabel>
+              위치정보<Strong>*</Strong>
+            </InputLabel>
+            <LocationButton
+              onClick={onClicked}
+              isThereLocation={location.length !== 0}
+            >
+              {location.length === 0 ? '위치정보 검색하기' : location}
+            </LocationButton>
+          </InputWrapper>
+          <Button
+            backgroundColor={disabled ? '#ff5d514d' : '#FF5D51'}
+            textColor="white"
+            disabled={disabled}
+            onClick={onClickButton}
+          >
+            회원가입
+          </Button>
+        </>
+      </Card>
       {visibility ? (
         <div id={styles.popup} ref={popup} onClick={onClickPopup}>
           <DaumPostcodeEmbed style={{ width: 450 }} onComplete={onComplete} />
