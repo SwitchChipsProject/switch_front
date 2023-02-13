@@ -5,7 +5,6 @@ import { useCallback, useState } from 'react';
 import Card from '../components/util/Card';
 import ExchangeRequest from '../components/util/ExchangeRequest';
 const Container = styled.div<{ isLoggedIn: boolean }>`
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,6 +12,7 @@ const Container = styled.div<{ isLoggedIn: boolean }>`
     props.isLoggedIn ? 'flex-start' : 'space-around'};
   width: 100%;
   gap: 15px 0;
+  height: calc(100vh - 150px);
 `;
 const Title = styled.span`
   font-size: 32.5px;
@@ -50,13 +50,19 @@ export default function Home() {
       </Title>
       <Image src="/homeImage.png" alt="home image"></Image>
       <ButtonsWrapper>
-        <Button backgroundColor="#FF5D51" textColor="white" onClick={goToLogin}>
+        <Button
+          backgroundColor="#FF5D51"
+          textColor="white"
+          onClick={goToLogin}
+          disabled={false}
+        >
           로그인
         </Button>
         <Button
           backgroundColor="black"
           textColor="white"
           onClick={goToRegister}
+          disabled={false}
         >
           회원가입
         </Button>
