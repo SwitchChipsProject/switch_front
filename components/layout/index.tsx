@@ -35,14 +35,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const [display, setDisplay] = useState<boolean>(true);
   const [movement, setMovement] = useState<boolean>(true);
+  const [pageY, setPageY] = useState<number>(0);
 
-  const listener = useCallback((e: Event) => {
-    if (window.scrollY > 100) {
-      setMovement(false);
-    } else {
-      setMovement(true);
-    }
-  }, []);
+  const listener = useCallback(
+    (e: Event) => {
+      const { pageYOffset } = window;
+      const deltaY = pageYOffset - pageY;
+      const movement = pageYOffset !== 0 && deltaY >= 0;
+      setMovement(!movement);
+      setPageY(pageYOffset);
+    },
+    [pageY]
+  );
 
   useEffect(() => {
     if (router.pathname === '/') {
